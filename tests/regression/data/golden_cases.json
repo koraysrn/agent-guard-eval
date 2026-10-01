@@ -1,0 +1,70 @@
+[
+  {
+    "name": "exact_values_pass",
+    "text": "Sharpe: 1.5, Variance: 0.04",
+    "ground_truth": {"Sharpe": 1.5, "Variance": 0.04},
+    "expected_valid": true,
+    "expected_violation_count": 0
+  },
+  {
+    "name": "mismatch_fails",
+    "text": "Sharpe: 2.5",
+    "ground_truth": {"Sharpe": 1.5},
+    "expected_valid": false,
+    "expected_violation_count": 1
+  },
+  {
+    "name": "missing_key_fails",
+    "text": "Sharpe: 1.5",
+    "ground_truth": {"Sharpe": 1.5, "Variance": 0.04},
+    "expected_valid": false,
+    "expected_violation_count": 1
+  },
+  {
+    "name": "percentage_pass",
+    "text": "Growth: 15%",
+    "ground_truth": {"Growth": 15.0},
+    "units": {"Growth": "percent"},
+    "expected_valid": true,
+    "expected_violation_count": 0
+  },
+  {
+    "name": "currency_conversion_pass",
+    "text": "Price: 10 EUR",
+    "ground_truth": {"Price": 11.0},
+    "units": {"Price": "USD"},
+    "config": {"exchange_rates": {"EURUSD": 1.1}},
+    "expected_valid": true,
+    "expected_violation_count": 0
+  },
+  {
+    "name": "locale_grouped_pass",
+    "text": "Amount: 1.234,56",
+    "ground_truth": {"Amount": 1234.56},
+    "config": {"decimal_sep": ",", "thousands_sep": "."},
+    "expected_valid": true,
+    "expected_violation_count": 0
+  },
+  {
+    "name": "scientific_notation_pass",
+    "text": "Probability: 1.5e-3",
+    "ground_truth": {"Probability": 0.0015},
+    "expected_valid": true,
+    "expected_violation_count": 0
+  },
+  {
+    "name": "ratio_pass",
+    "text": "Ratio: 3/4",
+    "ground_truth": {"Ratio": 0.75},
+    "expected_valid": true,
+    "expected_violation_count": 0
+  },
+  {
+    "name": "negative_drawdown_pass",
+    "text": "Drawdown: -23%",
+    "ground_truth": {"Drawdown": -23.0},
+    "units": {"Drawdown": "percent"},
+    "expected_valid": true,
+    "expected_violation_count": 0
+  }
+]
